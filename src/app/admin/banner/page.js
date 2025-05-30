@@ -3,8 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { DownOutlined } from '@ant-design/icons';
 import { Button, Dropdown, Form, Input, Modal, Popconfirm, Space, Table, Tag } from 'antd';
 import apiClient from '../../../lib/axios';
-import SubmitButton from '../../component/utility/SubmitButton'
-import ImageUpload from '../../component/imageUpload/imageUpload'
+// import SubmitButton from '../../component/utility/SubmitButton'
+import ImageUpload from '@/app/component/imageUpload/ImageUpload';
+import SubmitButton from '@/app/component/utility/SubmitButton';
 const AdminBanner = () => {
     const [form] = Form.useForm();
     const [bannerData, setBannerData] = useState([])

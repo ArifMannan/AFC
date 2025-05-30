@@ -9,6 +9,7 @@ import { SidebarFooter } from '../sidebarComponent/SidebarFooter';
 import { Switch } from '../sidebarComponent/Switch';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 const themes = {
   light: {
@@ -63,7 +64,7 @@ const AdminSidebar = () => {
   const [hasImage, setHasImage] = useState(false)
   const [theme, setTheme] = useState("dark")
   const pathname = usePathname()
-
+  const router = useRouter();
   const menuItemStyles = {
     root: {
       fontSize: "13px",
@@ -176,8 +177,14 @@ const AdminSidebar = () => {
                 <MenuItem> Line charts</MenuItem>
                 <MenuItem> Bar charts</MenuItem>
               </SubMenu> */}
-              <Link href="/admin/banner"><MenuItem className={pathname.includes('admin/banner') ? 'menu-active fs-6' : "fs-6"} icon={<i className="las la-sliders-h fs-5"></i>}>Banner
-              </MenuItem></Link>
+              <MenuItem
+                onClick={() => router.push('/admin/banner')}
+                className={pathname.includes('admin/banner') ? 'menu-active fs-6' : "fs-6"}
+                icon={<i className="las la-sliders-h fs-5"></i>}
+              >
+                Banner
+              </MenuItem>
+
 
               <SubMenu label="Theme" icon={<FaGithub />}>
                 <MenuItem> Dark</MenuItem>

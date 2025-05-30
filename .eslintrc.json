@@ -1,3 +1,20 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "rules": {
+    // React-specific rules
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+    // Next.js specific rules
+    "@next/next/no-css-tags": "warn",
+    "@next/next/no-img-element": "off",
+    // General JavaScript rules
+    "no-unused-vars": "warn",
+    // React Hooks rules
+    "react-hooks/exhaustive-deps": "warn"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
 }

@@ -15,16 +15,16 @@ const ProtectedRoute = ({ children, requiredRole }) => {
         if (status === 'loading') return;
         if (!session) {
             router.push('/auth/signin');
-        } else if (requiredRole && session.user.role !== requiredRole) {
+        } else if (requiredRole && session?.user.role !== requiredRole) {
             router.push('/auth/signin');
         }
     }, [session, status]);
 
-    if (status === 'loading' || !session) {
-        return <ManualLoading></ManualLoading>;
-    }
+    // if (status === 'loading' || !session) {
+    //     return <ManualLoading></ManualLoading>;
+    // }
 
-    if (requiredRole && session.user.role !== requiredRole) {
+    if (requiredRole && session?.user.role !== requiredRole) {
         return <div>You do not have permission to view this page.</div>;
     }
 

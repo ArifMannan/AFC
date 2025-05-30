@@ -93,10 +93,14 @@ export const SidebarFooter = ({ children, collapsed, ...rest }) => {
           <div style={{ marginTop: "16px" }}>
 
             <StyledButton>
-              <Typography variant="caption" color="#607489" fontWeight={600}>
-                <Link href="/">
-                  Go to Site
-                </Link>
+              <Typography
+                variant="caption"
+                color="#607489"
+                fontWeight={600}
+                onClick={() => router.push('/')}
+                style={{ cursor: 'pointer' }}  // Make it look clickable
+              >
+                Go to Site
               </Typography>
             </StyledButton>
           </div>

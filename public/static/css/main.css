@@ -23192,6 +23192,7 @@ i {
     border-radius: 5px;
     font-weight: 700;
     position: relative;
+    color: white;
     z-index: 1;
     overflow: hidden;
     transition: all .4s ease-in-out;

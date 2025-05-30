@@ -22,7 +22,7 @@ const Overview = () => {
                                                     <a href="training-details">Sports</a>
                                                 </h5>
                                                 <p className="secondary-text">
-                                                    Lorem Ipsum is simply dummy text
+                                                    Hosting tournaments and developing young athletes.
                                                 </p>
                                             </div>
                                         </div>
@@ -37,7 +37,7 @@ const Overview = () => {
                                                     <a href="training-details">Scolarship</a>
                                                 </h5>
                                                 <p className="secondary-text">
-                                                    Lorem Ipsum is simply dummy text
+                                                    Supporting students with recognition and funding.
                                                 </p>
                                             </div>
                                         </div>
@@ -52,7 +52,7 @@ const Overview = () => {
                                                     <a href="training-details">Charity</a>
                                                 </h5>
                                                 <p className="secondary-text">
-                                                    Lorem Ipsum is simply dummy text
+                                                    Serving local communities through various aid initiatives.
                                                 </p>
                                             </div>
                                         </div>
@@ -67,7 +67,7 @@ const Overview = () => {
                                                     <a href="training-details">Magazine</a>
                                                 </h5>
                                                 <p className="secondary-text">
-                                                    Lorem Ipsum is simply dummy text
+                                                    Highlighting achievements, events, and member stories.
                                                 </p>
                                             </div>
                                         </div>

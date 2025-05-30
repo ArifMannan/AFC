@@ -3,6 +3,11 @@ import styles from "./page.module.css";
 import Header from "./component/Header/Header";
 import Banner from "./component/Banner/Banner";
 import Overview from "./component/Banner/Overview";
+import Footer from "./component/footer/Footer";
+import AboutUs from "./component/Aboutus/AboutUs.js";
+import Teammap from "./component/team/Teammap";
+import TeamNetwork from "./component/team/TeamNetwork";
+
 
 export default function Home() {
   return (
@@ -11,95 +16,9 @@ export default function Home() {
         <Header></Header>
         <Banner></Banner>
         <Overview></Overview>
-        <section className="section about">
-          <div className="container">
-            <div className="row section__row align-items-center">
-              <div className="col-lg-6 col-xl-5 section__col order-last order-lg-first">
-                <div
-                  className="about__thumb dir-rtl wow fadeInUp"
-                  data-wow-duration="0.4s"
-                >
-                  <img
-                    alt="Image"
-                    loading="lazy"
-                    width={700}
-                    height={732}
-                    decoding="async"
-                    data-nimg={1}
-                    className="unset"
-                    style={{ color: "transparent" }}
-                    srcSet="https://golftio.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fabout-thumb.1fde792b.png&w=750&q=75"
-                    src="https://golftio.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fabout-thumb.1fde792b.png&w=1920&q=75"
-                  />
-                  <div className="about__experience">
-                    <div className="about__experience-thumb">
-                      <i className="golftio-ball" />
-                    </div>
-                    <h3>
-                      <span>30 +</span>
-                    </h3>
-                    <p>Years of experience</p>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-6 col-xl-6 offset-xl-1 section__col">
-                <div className="section__content">
-                  <h5 className="section__content-sub-title">About us</h5>
-                  <h2 className="section__content-title">
-                    We Are The Best Sports And Social Club In Our Local Area
-                  </h2>
-                  <p className="section__content-text">
-                    We offer a lot of courses of varying difficulty and beautiful
-                    scenery that golfers of all skill levels can enjoy. You will
-                    learn golf from professionals with our competent and experienced
-                    staff. You will have a great fun with our magnificent
-                    illuminated field.
-                  </p>
-                  <div className="about__section-inner">
-                    <div className="about__section-inner__single">
-                      <div className="about__section-inner__single-thumb">
-                        <i className="golftio-flag" />
-                      </div>
-                      <div className="about__section-inner__single-content">
-                        <h5>Professional Team</h5>
-                        <p className="secondary-text">
-                          Modern &amp; latest equipment with expert coaching
-                        </p>
-                      </div>
-                    </div>
-                    <div className="about__section-inner__single">
-                      <div className="about__section-inner__single-thumb">
-                        <i className="golftio-shot-great-upper" />
-                      </div>
-                      <div className="about__section-inner__single-content">
-                        <h5>Professional Trainings</h5>
-                        <p className="secondary-text">
-                          Modern &amp; latest equipment with expert coaching
-                        </p>
-                      </div>
-                    </div>
-                    <div className="about__section-inner__single">
-                      <div className="about__section-inner__single-thumb">
-                        <i className="golftio-sticks" />
-                      </div>
-                      <div className="about__section-inner__single-content">
-                        <h5>Practice Facilities</h5>
-                        <p className="secondary-text">
-                          Modern &amp; latest equipment with expert coaching
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="section__content-cta">
-                    <a className="cmn-button" href="about">
-                      Read More
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <AboutUs></AboutUs>
+        <TeamNetwork></TeamNetwork>
+        <Teammap></Teammap>
         <section className="section club">
           <div className="container">
             <div className="row section__row">
@@ -170,7 +89,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="section training wow fadeInUp" data-wow-duration="0.4s">
+        {/* <section className="section training wow fadeInUp" data-wow-duration="0.4s">
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-lg-7">
@@ -954,7 +873,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
         <section className="section counter">
           <div className="container">
             <div className="row section__row">
@@ -1013,7 +932,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="section pricing wow fadeInUp" data-wow-duration="0.4s">
+        {/* <section className="section pricing wow fadeInUp" data-wow-duration="0.4s">
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-sm-10 col-lg-6 col-xl-7">
@@ -1175,8 +1094,8 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
-        <section
+        </section> */}
+        {/* <section
           className="section testimonial wow fadeInUp"
           data-wow-duration="0.4s"
         >
@@ -1963,161 +1882,9 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
-        <section className="section shop wow fadeInUp" data-wow-duration="0.4s">
-          <div className="container">
-            <div className="row justify-content-center">
-              <div className="col-lg-7">
-                <div className="section__header">
-                  <h5 className="section__header-sub-title">Professional shop</h5>
-                  <h2 className="section__header-title">Featured products</h2>
-                  <p>
-                    AFC Sports Club is a golf club with a history that goes back
-                    to XX century. From a cricket club to soccer tournaments,
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="row justify-content-center section__row">
-              <div className="col-sm-10 col-md-6 col-xl-4 section__col">
-                <div className="shop__card">
-                  <div className="shop__card-thumb">
-                    <a href="product-details">
-                      <img
-                        alt="Image"
-                        loading="lazy"
-                        width={396}
-                        height={257}
-                        decoding="async"
-                        data-nimg={1}
-                        style={{ color: "transparent" }}
-                        srcSet="https://golftio.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fstick.ccd433a3.png&w=640&q=75"
-                        src="https://golftio.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fstick.ccd433a3.png&w=828&q=75"
-                      />
-                    </a>
-                  </div>
-                  <div className="shop__card-info">
-                    <h5>
-                      <a href="product-details">Training Stick</a>
-                    </h5>
-                    <p>
-                      ${/* */}165{/* */}.00 <span>$252.00</span>
-                    </p>
-                  </div>
-                  <div className="shop__card-review">
-                    <i className="golftio-star" />
-                    <i className="golftio-star" />
-                    <i className="golftio-star" />
-                    <i className="golftio-star" />
-                    <i className="golftio-star" />
-                  </div>
-                  <div className="shop__card-cta">
-                    <a className="cmn-button" href="cart">
-                      Add Cart
-                    </a>
-                    <a className="cmn-button cmn-button--secondary" href="sign-up">
-                      Buy Now
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-sm-10 col-md-6 col-xl-4 section__col">
-                <div className="shop__card">
-                  <div className="shop__card-thumb">
-                    <a href="product-details">
-                      <img
-                        alt="Image"
-                        loading="lazy"
-                        width={396}
-                        height={257}
-                        decoding="async"
-                        data-nimg={1}
-                        style={{ color: "transparent" }}
-                        srcSet="https://golftio.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fball.3dfe2a78.png&w=640&q=75"
-                        src="https://golftio.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fball.3dfe2a78.png&w=828&q=75"
-                      />
-                    </a>
-                  </div>
-                  <div className="shop__card-info">
-                    <h5>
-                      <a href="product-details">Golf Ball</a>
-                    </h5>
-                    <p>
-                      ${/* */}165{/* */}.00 <span>$252.00</span>
-                    </p>
-                  </div>
-                  <div className="shop__card-review">
-                    <i className="golftio-star" />
-                    <i className="golftio-star" />
-                    <i className="golftio-star" />
-                    <i className="golftio-star" />
-                    <i className="golftio-star" />
-                  </div>
-                  <div className="shop__card-cta">
-                    <a className="cmn-button" href="cart">
-                      Add Cart
-                    </a>
-                    <a className="cmn-button cmn-button--secondary" href="sign-up">
-                      Buy Now
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-sm-10 col-md-6 col-xl-4 section__col">
-                <div className="shop__card">
-                  <div className="shop__card-thumb">
-                    <a href="product-details">
-                      <img
-                        alt="Image"
-                        loading="lazy"
-                        width={396}
-                        height={257}
-                        decoding="async"
-                        data-nimg={1}
-                        style={{ color: "transparent" }}
-                        srcSet="https://golftio.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fgloves.8c2975be.png&w=640&q=75"
-                        src="https://golftio.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fgloves.8c2975be.png&w=828&q=75"
-                      />
-                    </a>
-                  </div>
-                  <div className="shop__card-info">
-                    <h5>
-                      <a href="product-details">White Gloves</a>
-                    </h5>
-                    <p>
-                      ${/* */}165{/* */}.00 <span>$252.00</span>
-                    </p>
-                  </div>
-                  <div className="shop__card-review">
-                    <i className="golftio-star" />
-                    <i className="golftio-star" />
-                    <i className="golftio-star" />
-                    <i className="golftio-star" />
-                    <i className="golftio-star" />
-                  </div>
-                  <div className="shop__card-cta">
-                    <a className="cmn-button" href="cart">
-                      Add Cart
-                    </a>
-                    <a className="cmn-button cmn-button--secondary" href="sign-up">
-                      Buy Now
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-12">
-                <div className="section__cta">
-                  <a className="cmn-button" href="shop">
-                    See all products
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className="section team wow fadeInUp" data-wow-duration="0.4s">
+        </section> */}
+
+        {/* <section className="section team wow fadeInUp" data-wow-duration="0.4s">
           <div className="container">
             <div className="row section__row align-items-center">
               <div className="col-lg-6 col-xl-6 section__col">
@@ -3001,7 +2768,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
         <section className="section join-club ">
           <div className="container">
             <div className="row">
@@ -3955,143 +3722,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <footer className="footer">
-          <div className="container">
-            <div className="row section__row">
-              <div className="col-md-6 col-lg-4 col-xl-3 section__col">
-                <div className="footer__single">
-                  <a className="footer__single-logo" href="index.htm">
-                    <img
-                      alt="Logo"
-                      loading="lazy"
-                      width={200}
-                      height={56}
-                      decoding="async"
-                      data-nimg={1}
-                      style={{ color: "transparent" }}
-                      srcSet="https://golftio.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo-light.12a03acd.png&w=256&q=75"
-                      src="https://golftio.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo-light.12a03acd.png&w=640&q=75"
-                    />
-                  </a>
-                  <div className="footer__single-content">
-                    <p>
-                      Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry. Lorem Ipsum has been the industry...
-                    </p>
-                    <div className="social justify-content-start">
-                      <a href="index.htm">
-                        <i className="fa-brands fa-facebook-f" />
-                      </a>
-                      <a href="index.htm">
-                        <i className="fa-brands fa-twitter" />
-                      </a>
-                      <a href="index.htm">
-                        <i className="fa-brands fa-square-instagram" />
-                      </a>
-                      <a href="index.htm">
-                        <i className="fa-brands fa-linkedin-in" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-6 col-lg-2 col-xl-3 section__col">
-                <div className="footer__single">
-                  <h5>Quick Links</h5>
-                  <div className="footer__single-content">
-                    <ul>
-                      <li>
-                        <a href="index.htm">Home</a>
-                      </li>
-                      <li>
-                        <a href="about">About Us</a>
-                      </li>
-                      <li>
-                        <a href="facility">Facility</a>
-                      </li>
-                      <li>
-                        <a href="shop">Shop</a>
-                      </li>
-                      <li>
-                        <a href="contact-us">Contact</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-6 col-lg-3 col-xl-3 section__col">
-                <div className="footer__single">
-                  <h5>Address</h5>
-                  <div className="footer__single-content">
-                    <div className="footer__single-content__group">
-                      <p>(480) 555-0103</p>
-                      <p>(406) 555-0120</p>
-                    </div>
-                    <div className="footer__single-content__group">
-                      <p>deanna.curtis@example.com</p>
-                      <p>debra.holt@example.com</p>
-                    </div>
-                    <div className="footer__single-content__group">
-                      <p>285 Great North Road, Grey Lynn, Auckland 1021</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-6 col-lg-3 col-xl-3 section__col">
-                <h5>Newsletter</h5>
-                <div className="footer__single">
-                  <div className="footer__single-content">
-                    <p>
-                      Subscribe our newsletter to get our latest update &amp; news{" "}
-                    </p>
-                    <form action="#" method="post" name="newsletterForm">
-                      <div className="newsletter">
-                        <input
-                          type="email"
-                          name="news-mail"
-                          id="newsMail"
-                          placeholder="Your email address"
-                          required=""
-                        />
-                        <button type="submit">
-                          <i className="golftio-paper-plane" />
-                        </button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr />
-            <div className="row">
-              <div className="col-12">
-                <div className="copyright">
-                  <div className="row align-items-center">
-                    <div className="col-lg-6">
-                      <p>
-                        Copyright © <span id="copyYear" /> 2023 Golftio. All Rights
-                        Reserved{/* */}{" "}
-                      </p>
-                    </div>
-                    <div className="col-lg-6">
-                      <ul>
-                        <li>
-                          <a href="support">Support</a>
-                        </li>
-                        <li>
-                          <a href="terms-conditions">Terms of Use</a>
-                        </li>
-                        <li>
-                          <a href="privacy-policy">Privacy Policy</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </footer>
+        <Footer></Footer>
         <button type="button" className="scrollToTop false">
           <i className="fa-solid fa-arrow-up" />
         </button>

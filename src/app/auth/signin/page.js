@@ -4,7 +4,7 @@
 import { signIn, useSession } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from 'next/navigation';
-const signinPage = () => {
+const SigninPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -98,4 +98,4 @@ const signinPage = () => {
     );
 };
 
-export default signinPage;
+export default SigninPage;
