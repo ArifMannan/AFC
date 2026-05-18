@@ -3,8 +3,21 @@
  */
 const nextConfig = {
     reactStrictMode: true,
-    experimental: {
-        // Do not include appDir or runtime here if not supported
+    // Native modules used in API routes (Vercel serverless)
+    serverExternalPackages: ['bcrypt', 'mysql2'],
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'res.cloudinary.com',
+                pathname: '/**',
+            },
+            {
+                protocol: 'https',
+                hostname: 'images.unsplash.com',
+                pathname: '/**',
+            },
+        ],
     },
 };
 

@@ -45,8 +45,7 @@ const Footer = () => {
                                 </div>
                                 <div className="footer__single-content">
                                     <p>
-                                        Lorem Ipsum is simply dummy text of the printing and
-                                        typesetting industry. Lorem Ipsum has been the industry...
+                                        Adarsha Futanta Club unites youth, educators, and community leaders to empower the next generation through sports, scholarships, and service.
                                     </p>
                                     <div className="social justify-content-start">
                                         <a href="index.htm">
@@ -94,15 +93,16 @@ const Footer = () => {
                                 <h5>Address</h5>
                                 <div className="footer__single-content">
                                     <div className="footer__single-content__group">
-                                        <p>(480) 555-0103</p>
-                                        <p>(406) 555-0120</p>
+
+                                        <p>01770108913</p>
+                                        <p>01833426705</p>
                                     </div>
                                     <div className="footer__single-content__group">
-                                        <p>deanna.curtis@example.com</p>
-                                        <p>debra.holt@example.com</p>
+                                        <p>info@futantaclub.com</p>
+                                        <p>futantascholarship@gmail.com</p>
                                     </div>
                                     <div className="footer__single-content__group">
-                                        <p>285 Great North Road, Grey Lynn, Auckland 1021</p>
+                                        <p>Adarsha Para, Char Mehar, Bibirhat, Ramgati, Lakshmipur</p>
                                     </div>
                                 </div>
                             </div>

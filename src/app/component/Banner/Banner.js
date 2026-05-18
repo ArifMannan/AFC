@@ -37,7 +37,49 @@ const Banner = () => {
                     navigation={true}
                     modules={[Autoplay, Parallax, Pagination, Navigation, EffectFade, FreeMode]}
                     className="mySwiper swipe-card"
-                >
+                >  <SwiperSlide>
+                        <div className="slide" style={{ backgroundImage: "url(/static/images/banner/scholarship-exam.jpg)" }}>
+                            <div className="banner-content" data-swiper-parallax="-300">
+                                <span className="pretitle">Welcome To Our club</span>
+                                <h1 className="banner-heading">Determined Minds at the Scholarship Examination Hall</h1>
+                                <a
+                                    className="cmn-button cmn-button--secondary text-light"
+                                    href="sign-in"
+                                >
+                                    See more
+                                </a>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="slide" style={{ backgroundImage: "url(/static/images/banner/banner0.jpeg)" }}>
+                            <div className="banner-content" data-swiper-parallax="-300">
+                                <span className="pretitle">Welcome To Our club</span>
+                                <h1 className="banner-heading">Scholarship Exam Completion Ceremony</h1>
+                                <a
+                                    className="cmn-button cmn-button--secondary text-light"
+                                    href="sign-in"
+                                >
+                                    See more
+                                </a>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="slide" style={{ backgroundImage: "url(/static/images/banner/b1.jpeg)" }}>
+                            <div className="banner-content" data-swiper-parallax="-300">
+                                <span className="pretitle">Welcome To Our club</span>
+                                <h1 className="banner-heading">Scholarship Award Presentation Ceremony</h1>
+                                <a
+                                    className="cmn-button cmn-button--secondary text-light"
+                                    href="sign-in"
+                                >
+                                    See more
+                                </a>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+
                     <SwiperSlide>
                         <div className="slide" style={{ backgroundImage: "url(/static/images/test.jpeg)" }}>
                             <div className="banner-content" data-swiper-parallax="-300">
@@ -53,35 +95,8 @@ const Banner = () => {
                             </div>
                         </div>
                     </SwiperSlide>
-                    <SwiperSlide>
-                        <div className="slide" style={{ backgroundImage: "url(/static/images/banner/banner0.jpeg)" }}>
-                            <div className="banner-content" data-swiper-parallax="-300">
-                                <span className="pretitle">Welcome To Our club</span>
-                                <h1 className="banner-heading">Destination for world
-                                    Cricket News</h1>
-                                <a
-                                    className="cmn-button cmn-button--secondary text-light"
-                                    href="sign-in"
-                                >
-                                    See more
-                                </a>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className="slide" style={{ backgroundImage: "url(/static/images/banner/b1.jpeg)" }}>
-                            <div className="banner-content" data-swiper-parallax="-300">
-                                <span className="pretitle">Welcome To Our club</span>
-                                <h1 className="banner-heading">Scholarship Award Presentation Ceremony 2022</h1>
-                                <a
-                                    className="cmn-button cmn-button--secondary text-light"
-                                    href="sign-in"
-                                >
-                                    See more
-                                </a>
-                            </div>
-                        </div>
-                    </SwiperSlide>
+
+
 
                 </Swiper>
 

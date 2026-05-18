@@ -1,25 +1,29 @@
 
 import styles from "./page.module.css";
-import Header from "./component/Header/Header";
 import Banner from "./component/Banner/Banner";
 import Overview from "./component/Banner/Overview";
 import Footer from "./component/footer/Footer";
 import AboutUs from "./component/Aboutus/AboutUs.js";
 import Teammap from "./component/team/Teammap";
 import TeamNetwork from "./component/team/TeamNetwork";
+import Gallery from "./component/Gallery/Gallery";
+import ScholarshipResult from "./component/ScholarshipResult/ScholarshipResult";
+import OurTeam from "./component/OurTeam/OurTeam";
 
 
 export default function Home() {
   return (
     <main className={styles}>
       <div className="main-wrapper" id="app"> <div id="__next">
-        <Header></Header>
+
         <Banner></Banner>
         <Overview></Overview>
         <AboutUs></AboutUs>
-        <TeamNetwork></TeamNetwork>
-        <Teammap></Teammap>
-        <section className="section club">
+        <ScholarshipResult></ScholarshipResult>
+        <OurTeam></OurTeam>
+        <Gallery></Gallery>
+        {/* <Teammap></Teammap> */}
+        {/* <section className="section club">
           <div className="container">
             <div className="row section__row">
               <div className="col-lg-6 section__col">
@@ -51,7 +55,7 @@ export default function Home() {
                       </li>
                       <li>
                         <i className="golftio-pin-checked" />
-                        Individual Support{/* */}{" "}
+                        Individual Support{" "}
                       </li>
                     </ul>
                   </div>
@@ -88,7 +92,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
         {/* <section className="section training wow fadeInUp" data-wow-duration="0.4s">
           <div className="container">
             <div className="row justify-content-center">
@@ -874,7 +878,7 @@ export default function Home() {
             </div>
           </div>
         </section> */}
-        <section className="section counter">
+        {/* <section className="section counter">
           <div className="container">
             <div className="row section__row">
               <div className="col-sm-6 col-lg-3 section__col">
@@ -931,7 +935,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
         {/* <section className="section pricing wow fadeInUp" data-wow-duration="0.4s">
           <div className="container">
             <div className="row justify-content-center">
@@ -2769,6 +2773,7 @@ export default function Home() {
             </div>
           </div>
         </section> */}
+
         <section className="section join-club ">
           <div className="container">
             <div className="row">

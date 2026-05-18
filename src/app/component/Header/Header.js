@@ -1,12 +1,21 @@
-"use client"
+'use client';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
 const Header = () => {
-    const [openCollapsed, setOpenCollapsed] = useState(false)
-    const [headerClass, setHeaderClass] = useState('false');
+    const pathname = usePathname();
+    const [openCollapsed, setOpenCollapsed] = useState(false);
+    const [headerClass, setHeaderClass] = useState(''); // '' or 'header-active'
 
     useEffect(() => {
+        // If we're not on the home page, always active:
+        if (pathname !== '/') {
+            setHeaderClass('header-active');
+            return;
+        }
+
+        // On home page: toggle based on scroll
         const handleScroll = () => {
             if (window.scrollY > window.innerHeight) {
                 setHeaderClass('header-active');
@@ -15,13 +24,12 @@ const Header = () => {
             }
         };
 
-        window.addEventListener('scroll', handleScroll);
+        // Initialize based on current scroll
+        handleScroll();
 
-        // Cleanup event listener on component unmount
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [pathname]);
     return (
         <div>
             <header className={`header ${headerClass}`}>
@@ -77,12 +85,8 @@ const Header = () => {
 
                                         <ul className="nav__menu-items">
                                             <li className="nav__menu-item nav__menu-item--dropdown">
-                                                <a
-                                                    className="nav__menu-link"
-                                                    href="URL:void(0)"
-                                                >
-                                                    Home
-                                                </a>
+                                                <Link className="nav__menu-link false" href={'/'}>Home</Link>
+
                                             </li>
                                             <li className="nav__menu-item nav__menu-item--dropdown">
                                                 <a
@@ -111,12 +115,10 @@ const Header = () => {
                                                 </ul> */}
                                             </li>
                                             <li className="nav__menu-item nav__menu-item--dropdown">
-                                                <a
-                                                    className="nav__menu-link false"
-                                                    href="URL:void(0)"
-                                                >
-                                                    Our teams
-                                                </a>
+
+                                                <Link className="nav__menu-link false" href={'/our-members'}>Our Members</Link>
+
+
                                                 {/* <ul className="nav__dropdown false">
                                                     <li>
                                                         <a
@@ -264,12 +266,12 @@ const Header = () => {
                                                 <Link className='cmn-button cmn-button--secondary' href="/admin">
                                                     Sign In
                                                 </Link>
-
-
-
-                                                <a className="cmn-button cmn-button--frist" >
+                                                <Link className='cmn-button cmn-button--frist' href="/auth/signup">
                                                     Sign Up
-                                                </a>
+                                                </Link>
+
+
+
                                             </li>
                                         </ul>
                                         <div className="social">
@@ -293,9 +295,9 @@ const Header = () => {
                                             <Link className='cmn-button cmn-button--secondary' href="/admin">
                                                 Sign In
                                             </Link>
-                                            <a className="cmn-button cmn-button--frist">
+                                            <Link className='cmn-button cmn-button--frist' href="/auth/signup">
                                                 Sign Up
-                                            </a>
+                                            </Link>
                                         </div>
                                         {/* onClick={()=>setOpenCollapsed(true)}  */}
                                         <button onClick={() => setOpenCollapsed(true)} className="nav__bar d-block d-xl-none">

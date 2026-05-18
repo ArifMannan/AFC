@@ -28,6 +28,15 @@ export const dynamic = 'force-dynamic'; // Required for file uploads
 export const runtime = 'nodejs'; // Required for Multer (doesn't work on Edge)
 
 export async function POST(request) {
+    if (process.env.VERCEL && !process.env.CLOUDINARY_CLOUD_NAME) {
+        return NextResponse.json(
+            {
+                error: 'File uploads on Vercel require Cloudinary. Add CLOUDINARY_* environment variables.',
+            },
+            { status: 503 }
+        );
+    }
+
     return new Promise((resolve, reject) => {
         multerMiddleware(request, {}, async (err) => {
             if (err) {

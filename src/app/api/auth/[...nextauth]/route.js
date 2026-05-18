@@ -32,7 +32,11 @@ const handler = NextAuth({
                 const user = users.find((user) => user.email === credentials.email);
 
                 if (user && await bcrypt.compare(credentials.password, user.hashedPassword)) {
-                    const token = jwt.sign({ id: user.id, email: user.email, role: user.role }, "arifmannan", { expiresIn: '1h' });
+                    const token = jwt.sign(
+                        { id: user.id, email: user.email, role: user.role },
+                        process.env.NEXTAUTH_SECRET || process.env.JWT_SECRET,
+                        { expiresIn: '1h' }
+                    );
                     return { ...user, token };
                 } else {
                     return null;
@@ -59,7 +63,7 @@ const handler = NextAuth({
             return session;
         },
     },
-    secret: "arifmannan",
+    secret: process.env.NEXTAUTH_SECRET,
 });
 
 export { handler as GET, handler as POST };

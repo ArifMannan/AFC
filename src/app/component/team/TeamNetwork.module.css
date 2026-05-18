@@ -1,20 +1,83 @@
-.networkContainer {
+.teamSection {
+    background: #F7FAFC;
+    padding: 60px 30px;
     position: relative;
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(135deg, #0a0a23 0%, #1a1a3e 100%);
     overflow: hidden;
+    max-width: 1440px;
+    margin: 0 auto;
+    border-radius: 12px;
 }
 
-.backgroundDots {
+.statsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 10px;
+}
+
+.statCard {
+    background: #FFFFFF;
+    border-radius: 10px;
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    color: #2D3748;
+    font-weight: 600;
+    transition: transform 0.3s ease;
+}
+
+.statCard:hover {
+    transform: translateY(-5px);
+}
+
+.filterContainer {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.filterContainer label {
+    font-size: 18px;
+    color: #2D3748;
+    margin-right: 12px;
+    font-weight: 500;
+}
+
+.filterSelect {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #E2E8F0;
+    font-size: 16px;
+    background: #FFFFFF;
+    color: #2D3748;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.filterSelect:focus {
+    border-color: #2C7A7B;
+    outline: none;
+}
+
+.networkContainer {
+    position: relative;
+    width: 100%;
+    min-height: 70vh;
+    padding: 30px;
+    box-sizing: border-box;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.waveBackground {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-    background-size: 30px 30px;
-    opacity: 0.3;
+    background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"%3E%3Cpath fill="%232C7A7B" fill-opacity="0.1" d="M0,128L48,133.3C96,139,192,149,288,149.3C384,149,480,139,576,138.7C672,139,768,149,864,149.3C960,149,1056,139,1152,133.3C1248,128,1344,128,1392,128L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"%3E%3C/path%3E%3C/svg%3E');
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 0;
 }
 
 .svgConnections {
@@ -24,15 +87,16 @@
     width: 100%;
     height: 100%;
     z-index: 1;
+    pointer-events: none;
 }
 
 .connectionLine {
-    stroke: #00ff88;
+    stroke: #2C7A7B;
     stroke-width: 2;
-    stroke-dasharray: 8, 4;
+    stroke-dasharray: 6, 3;
     fill: none;
-    opacity: 0.6;
-    animation: dash 3s linear infinite;
+    opacity: 0.5;
+    animation: dash 4s linear infinite;
 }
 
 @keyframes dash {
@@ -41,159 +105,267 @@
     }
 
     100% {
-        stroke-dashoffset: 24;
+        stroke-dashoffset: 18;
+    }
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 30px;
+    position: relative;
+    z-index: 2;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.personWrapper {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.3s ease;
+    opacity: 1;
+    animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.personWrapper:not(.focused) {
+    animation: subtleBounce 2.5s ease-in-out infinite;
+}
+
+@keyframes subtleBounce {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.03);
     }
 }
 
 .person {
-    position: absolute;
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     overflow: hidden;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    transition: all 0.5s ease;
-    z-index: 2;
-    opacity: 0;
-    transform: scale(0.8);
-}
-
-.person.active {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.person:hover {
-    transform: scale(1.15) !important;
-    border-color: #00ff88;
-    box-shadow: 0 0 25px rgba(0, 255, 136, 0.7);
-    z-index: 10;
-}
-
-.nameTooltip {
-    position: absolute;
-    background: rgba(0, 0, 0, 0.9);
-    color: white;
-    padding: 8px 12px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: bold;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 20;
-    white-space: nowrap;
-    border: 1px solid #00ff88;
-}
-
-.nameTooltip.show {
-    opacity: 1;
-}
-
-.clubInfo {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    background: rgba(0, 0, 0, 0.8);
-    color: #00ff88;
-    padding: 15px 20px;
-    border-radius: 10px;
-    font-weight: bold;
-    z-index: 100;
-    border: 1px solid #00ff88;
-}
-
-.controls {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    display: flex;
-    gap: 10px;
-    z-index: 100;
-}
-
-.controlBtn {
-    background: linear-gradient(135deg, #00ff88, #00cc6a);
-    color: #000;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 20px;
-    font-weight: bold;
-    cursor: pointer;
+    border: 3px solid #2C7A7B;
+    background: #E2E8F0;
+    object-fit: cover;
     transition: all 0.3s ease;
-    font-size: 12px;
+    filter: drop-shadow(0 0 5px rgba(44, 122, 123, 0.3));
 }
 
-.controlBtn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+.person:hover,
+.person.focused {
+    transform: scale(1.15);
+    border-color: #F56565;
+    box-shadow: 0 0 12px rgba(245, 101, 101, 0.4);
+    filter: drop-shadow(0 0 6px rgba(245, 101, 101, 0.5));
 }
 
-.speedIndicator {
-    position: fixed;
-    bottom: 20px;
+.popupCard {
+    position: absolute;
+    bottom: 140%;
+    left: 50%;
+    transform: translateX(-50%) scale(0.95);
+    background: rgba(255, 255, 255, 0.95);
+    color: #2D3748;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    width: 220px;
+    padding: 15px 20px;
+    text-align: center;
+    z-index: 20;
+    font-weight: 500;
+    font-size: 14px;
+    border: 1px solid #E2E8F0;
+    backdrop-filter: blur(5px);
+    animation: popupBounce 0.5s ease-out forwards;
+}
+
+@keyframes popupBounce {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) scale(0.85);
+    }
+
+    70% {
+        transform: translateX(-50%) scale(1.03);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+.popupCard:hover {
+    transform: translateX(-50%) scale(1.01);
+    box-shadow: 0 8px 16px rgba(245, 101, 101, 0.2);
+    border-color: #F56565;
+}
+
+.popupCard h4 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #2D3748;
+}
+
+.popupCard hr {
+    border: none;
+    border-top: 1px solid #E2E8F0;
+    margin: 10px 0;
+}
+
+.popupCard p {
+    margin: 8px 0;
+    font-weight: 500;
+    color: #4A5568;
+}
+
+.socialLinks {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.socialIcon {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.socialIcon:hover {
+    transform: scale(1.15);
+    filter: brightness(1.1);
+}
+
+.popupArrow {
+    position: absolute;
+    top: 100%;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.8);
-    color: #00ff88;
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-size: 12px;
-    border: 1px solid #00ff88;
-    z-index: 100;
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 14px solid #FFFFFF;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    z-index: 21;
 }
 
-.networkContainer {
-    background: linear-gradient(135deg, #0a0a23 0%, #1a1a3e 100%);
+.seeMoreContainer {
+    text-align: center;
+    margin-top: 40px;
 }
 
-.backgroundDots {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-    background-size: 30px 30px;
-    opacity: 0.3;
-    z-index: 0;
+.seeMoreButton {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #F56565;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
-.svgConnections line {
-    stroke: #00ff88;
-    stroke-width: 2;
-    stroke-dasharray: 8, 4;
-    fill: none;
-    opacity: 0.6;
-    animation: dash 3s linear infinite;
-    z-index: 1;
+.seeMoreButton:hover {
+    background: #E53E3E;
+    transform: translateY(-3px);
 }
 
-@keyframes dash {
-    0% {
-        stroke-dashoffset: 0;
+@media (max-width: 768px) {
+    .teamSection {
+        padding: 40px 20px;
     }
 
-    100% {
-        stroke-dashoffset: 24;
+    .gridContainer {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 20px;
+    }
+
+    .personWrapper {
+        width: 100px;
+        height: 100px;
+    }
+
+    .person {
+        width: 100px;
+        height: 100px;
+        border-width: 2px;
+    }
+
+    .popupCard {
+        width: 180px;
+        padding: 12px 15px;
+        font-size: 13px;
+        bottom: 120%;
+    }
+
+    .popupCard h4 {
+        font-size: 16px;
+    }
+
+    .popupArrow {
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 12px solid #FFFFFF;
+    }
+
+    .statsContainer {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
     }
 }
 
-.person {
-    border-radius: 50%;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    cursor: pointer;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    box-sizing: border-box;
-    transition: all 0.5s ease;
-    opacity: 1;
-    overflow: hidden;
-}
+@media (max-width: 480px) {
+    .teamSection {
+        padding: 30px 15px;
+    }
 
-.person:hover {
-    transform: scale(1.15);
-    border-color: #00ff88;
-    box-shadow: 0 0 25px rgba(0, 255, 136, 0.7);
-    z-index: 10;
+    .gridContainer {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 15px;
+    }
+
+    .personWrapper {
+        width: 80px;
+        height: 80px;
+    }
+
+    .person {
+        width: 80px;
+        height: 80px;
+    }
+
+    .popupCard {
+        width: 160px;
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .popupCard h4 {
+        font-size: 14px;
+    }
 }

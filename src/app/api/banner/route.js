@@ -1,5 +1,8 @@
 import { getBannersController, addBannerController, updateBannerController, deleteBannerController } from '../../../apicomponent/controllers/bannerController';
 
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+
 export async function GET(req, res) {
     return getBannersController(req, res);
 }

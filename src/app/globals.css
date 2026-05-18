@@ -239,7 +239,7 @@ body,
 
 /* Team section */
 
-@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+/* @import url("https://fonts.googleapis.com/css?family=Open+Sans"); */
 
 /* body {
     font-family: "Open Sans", sans-serif;
@@ -249,12 +249,12 @@ body,
     margin: 0;
 } */
 
-.vcenter {
+/* .vcenter {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-}
+} */
 
 /* .container {
     max-width: 768px;
@@ -325,7 +325,7 @@ body,
     left: 0;
     right: 0;
 } */
-
+/* 
 .userProfile {
     display: flex;
     flex-wrap: wrap;
@@ -532,6 +532,6 @@ body,
     100% {
         background-position: 0% 50%;
     }
-}
+} */
 
 /* end */

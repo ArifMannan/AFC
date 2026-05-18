@@ -26,7 +26,13 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
+.env
 .env*.local
+src/.env
+
+# archives / build artifacts not needed in git
+*.zip
+.next.zip
 
 # vercel
 .vercel
