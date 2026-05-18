@@ -1,15 +1,16 @@
 "use client";
 
-import Link from 'next/link';
 import Image from 'next/image';
 import React from 'react';
+
 const members = [
-    { id: 'EMP2004-002', name: 'Nurul Islam Hannan', role: 'Chief Advisor', img: '/static/images/profile/Nurul_Islam_Hannan_Chif_Advisor.jpg', socials: { facebook: '#', twitter: '#', linkedin: '#', instagram: '#' } },
-    { id: 'EMP2004-010', name: 'ASM Rayhan', role: 'Advisor', img: '/static/images/profile/ASM_Rayhan_Advisor.jpg', socials: { facebook: '#', twitter: '#', linkedin: '#', instagram: '#' } },
-    { id: 'EMP2004-011', name: 'Ali Murtaza', role: 'Advisor', img: '/static/images/profile/Ali_Murtaza_Advisor_.jpg', socials: { facebook: '#', twitter: '#', linkedin: '#', instagram: '#' } },
-    { id: 'EMP2004-012', name: 'AHM Nazrul Islam', role: 'Advisor', img: '/static/images/profile/AHM_Nazrul_Islam_Advisor.jpg', socials: { facebook: '#', twitter: '#', linkedin: '#', instagram: '#' } },
-    { id: 'EMP2004-013', name: 'Md Fakhrul Islam', role: 'Advisor', img: '/static/images/profile/Md_Fakhrul_Islam_Advisor.jpg', socials: { facebook: '#', twitter: '#', linkedin: '#', instagram: '#' } },
-    { id: 'EMP2004-014', name: 'Ikbal Hossain', role: 'Advisor', img: '/static/images/profile/Ikbal_Hossain_Advisor.jpg', socials: { facebook: '#', twitter: '#', linkedin: '#', instagram: '#' } },
+    { id: 'EMP2004-001', name: 'Nurul Islam Hannan', role: 'Chief Advisor', img: '/static/images/profile/Nurul_Islam_Hannan_Chif_Advisor.jpg', socials: { facebook: '#', twitter: '#', linkedin: '#', instagram: '#' } },
+    { id: 'EMP2004-002', name: 'AHM Nazrul Islam', role: 'Advisor', img: '/static/images/profile/AHM_Nazrul_Islam_Advisor.jpg', socials: { facebook: '#', twitter: '#', linkedin: '#', instagram: '#' } },
+    { id: 'EMP2004-003', name: 'ASM Rayhan', role: 'Advisor', img: '/static/images/profile/ASM_Rayhan_Advisor.jpg', socials: { facebook: '#', twitter: '#', linkedin: '#', instagram: '#' } },
+    { id: 'EMP2004-004', name: 'Ali Murtaza', role: 'Advisor', img: '/static/images/profile/Ali_Murtaza_Advisor_.jpg', socials: { facebook: '#', twitter: '#', linkedin: '#', instagram: '#' } },
+
+    { id: 'EMP2004-005', name: 'Md Fakhrul Islam', role: 'Advisor', img: '/static/images/profile/Md_Fakhrul_Islam_Advisor.jpg', socials: { facebook: '#', twitter: '#', linkedin: '#', instagram: '#' } },
+    { id: 'EMP2004-006', name: 'Ikbal Hossain', role: 'Advisor', img: '/static/images/profile/Ikbal_Hossain_Advisor.jpg', socials: { facebook: '#', twitter: '#', linkedin: '#', instagram: '#' } },
 ];
 const executive_members = [
     { id: 'EMP2004-002', name: 'Mahbub Alom Tarek', role: 'Executive Member', img: '/static/images/profile/tarek.jpg', socials: { facebook: '#', twitter: '#', linkedin: '#', instagram: '#' } },
@@ -30,6 +31,17 @@ const executive_members = [
         id: 'EMP2004-017', name: 'Fazlur Rahman', role: 'Executive Member', img: '/static/images/profile/fazlur.jpg', socials: { facebook: '#', twitter: '#', linkedin: '#', instagram: '#' },
     },
 ];
+
+const employeeIdSeq = (member) => {
+    const m = String(member.id).match(/-(\d+)$/);
+    return m ? parseInt(m[1], 10) : 0;
+};
+
+const membersByIdAsc = [...members].sort((a, b) => employeeIdSeq(a) - employeeIdSeq(b));
+const executiveMembersByIdAsc = [...executive_members].sort(
+    (a, b) => employeeIdSeq(a) - employeeIdSeq(b)
+);
+
 const board_members = [
     { id: 'EMP2004-002', name: 'Abdus Samad Raju', role: 'Board Of Director', img: '/static/images/profile/raju.jpg', socials: { facebook: '#', twitter: '#', linkedin: '#', instagram: '#' } },
     { id: 'EMP2004-010', name: 'Md. Mijanur Rahman Ripon', role: 'Board Of Director', img: '/static/images/profile/ripon.jpg', socials: { facebook: '#', twitter: '#', linkedin: '#', instagram: '#' } },
@@ -64,7 +76,7 @@ const TeamPage = () => (
 
         <div className="row g-4">
             <h5 className='fw-bold text-success'>Advisor</h5>
-            {members.map(member => (
+            {membersByIdAsc.map(member => (
                 <div key={member.id} className="col-xl-3 col-lg-4 col-md-6">
                     <div className="card h-100 border-0 shadow-sm employee-card rounded-4 overflow-hidden position-relative">
                         {/* Top-right curved accent */}
@@ -132,7 +144,7 @@ const TeamPage = () => (
         </div>
         <div className="row g-4">
             <h5 className='fw-bold text-success pt-5'>Executive Members</h5>
-            {executive_members.map(member => (
+            {executiveMembersByIdAsc.map(member => (
                 <div key={member.id} className="col-xl-3 col-lg-4 col-md-6">
                     <div className="card h-100 border-0 shadow-sm employee-card rounded-4 overflow-hidden position-relative">
                         {/* Top-right curved accent */}
