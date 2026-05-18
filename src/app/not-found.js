@@ -1,3 +1,4 @@
+import Link from 'next/link';
 
 const notFoundPage = () => {
     return (
@@ -29,9 +30,9 @@ const notFoundPage = () => {
                                     eiusmod tempor incididunt ut labore et dolore magna aliqua.
                                 </p>
                                 <div className="section__cta">
-                                    <a className="cmn-button" href="/">
+                                    <Link className="cmn-button" href="/">
                                         Back to home
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

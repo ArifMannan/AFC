@@ -39,7 +39,7 @@ const Header = () => {
                             <nav className="nav">
                                 <div className="nav__content">
                                     <div className="nav__logo">
-                                        <a href="/">
+                                        <Link href="/">
                                             <img
                                                 alt="Logo"
                                                 loading="lazy"
@@ -52,7 +52,7 @@ const Header = () => {
 
                                                 src="/static/images/logo.jpeg"
                                             />
-                                        </a>
+                                        </Link>
                                     </div>
                                     <div>
                                         <h5 className={headerClass === 'false' ? 'text-light' : 'project-color'}>Adarsha Futanta Club</h5>
@@ -60,7 +60,7 @@ const Header = () => {
                                     </div>
                                     <div className={`nav__menu ${openCollapsed ? "nav__menu-active" : "false"}`}>
                                         <div className="nav__menu-logo d-flex d-xl-none">
-                                            <a href="/">
+                                            <Link href="/">
                                                 <img
                                                     alt="Logo"
                                                     loading="lazy"
@@ -73,7 +73,7 @@ const Header = () => {
 
                                                     src="/static/images/logo.jpeg"
                                                 />
-                                            </a>
+                                            </Link>
                                             <div>
                                                 <h6 className='project-color'>Adarsha Futanta Club</h6>
                                             </div>

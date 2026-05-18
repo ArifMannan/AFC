@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 const Footer = () => {
     return (
@@ -23,7 +24,7 @@ const Footer = () => {
                                 </a> */}
                                 <div className="d-flex align-items-center">
                                     <div className="nav__logo">
-                                        <a href="/">
+                                        <Link href="/">
                                             <img
                                                 alt="Logo"
                                                 loading="lazy"
@@ -36,7 +37,7 @@ const Footer = () => {
 
                                                 src="/static/images/logo.jpeg"
                                             />
-                                        </a>
+                                        </Link>
                                     </div>
                                     <div className=' ps-2'>
                                         <h5 className="text-light">Adarsha Futanta Club</h5>
